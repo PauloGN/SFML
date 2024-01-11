@@ -17,6 +17,11 @@ Game::~Game()
 	delete this->window;
 }
 
+void Game::UpdateDT()
+{
+    dt = dtClock.restart().asSeconds();
+}
+
 //Engine functions
 void Game::UpdateSFMLEvents()
 {
@@ -44,6 +49,7 @@ void Game::Run()
 {
     while (window->isOpen())
     {
+        UpdateDT();
         Update();
         Render();
     }

@@ -18,6 +18,9 @@ private:
 	sf::RenderWindow* window;
 	sf::Event sfEvent;
 
+	sf::Clock dtClock;
+	float dt;
+
 	//Initialization
 	void InitWindow();
 
@@ -28,6 +31,7 @@ public:
 	virtual ~Game();
 
 	//Engine Function
+	void UpdateDT();
 	void UpdateSFMLEvents();
 	void Update();
 	void Render();
