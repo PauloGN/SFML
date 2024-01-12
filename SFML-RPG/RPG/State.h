@@ -3,7 +3,9 @@
 #include <ctime>
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <sstream>
+#include <stack>
 #include <vector>
 //SFLM
 #include "SFML/System.hpp"
@@ -17,14 +19,17 @@ class State
 {
 private:
 
+	sf::RenderWindow* window;
 	std::vector<sf::Texture> texture;
 
 
 public:
-	State();
+	State(sf::RenderWindow* _window);
 	virtual ~State();
 
-	virtual void Update() = 0;
-	virtual void Render() = 0;
+	virtual void EndState() = 0;
+
+	virtual void Update(const float& _dt) = 0;
+	virtual void Render(sf::RenderTarget* _target = nullptr) = 0;
 };
 

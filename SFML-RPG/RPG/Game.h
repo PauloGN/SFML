@@ -1,5 +1,5 @@
 #pragma once
-#include "State.h"
+#include "GameState.h"
 
 class Game
 {
@@ -13,8 +13,13 @@ private:
 	sf::Clock dtClock;
 	float dt;
 
+	//state is abstract, then we are going to have a stack of pointers to various states, where the top is always the active one.
+	std::stack<State*> states;
+
+
 	//Initialization
 	void InitWindow();
+	void InitStates();
 
 public:
 

@@ -1,7 +1,9 @@
 #include "State.h"
 
-State::State()
-{}
+State::State(sf::RenderWindow* _window)
+{
+	window = _window;
+}
 
 State::~State()
 {}
