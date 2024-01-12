@@ -1,13 +1,5 @@
 #pragma once
-
-#include <iostream>
-#include <ctime>
-//SFLM
-#include "SFML/System.hpp"
-#include "SFML/Window.hpp"
-#include "SFML/Graphics.hpp"
-#include "SFML/Audio.hpp"
-#include "SFML/Network.hpp"
+#include "State.h"
 
 class Game
 {
