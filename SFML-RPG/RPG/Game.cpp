@@ -49,12 +49,17 @@ Game::~Game()
     }
 }
 
+//Engine functions
+void Game::EndApplication()
+{
+    std::cout << "Ending Aplication \n";
+}
+
 void Game::UpdateDT()
 {
     dt = dtClock.restart().asSeconds();
 }
 
-//Engine functions
 void Game::UpdateSFMLEvents()
 {
     while (window->pollEvent(sfEvent))
@@ -70,7 +75,21 @@ void Game::Update()
     if (!states.empty())
     {
         states.top()->Update(dt);
+
+        if (states.top()->GetQuit())
+        {
+            states.top()->EndState();
+            delete states.top();
+            states.pop();
+        }
     }
+    //Application ends
+    else
+    {
+        EndApplication();
+        window->close();
+    }
+
 }
 
 void Game::Render()
