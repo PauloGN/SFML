@@ -22,22 +22,7 @@ void Entity::Move(const float dir_x, const float dir_y)
 void Entity::Update(const float& dt)
 {
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-		Move(dt, -1.0f, 0.0f);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-		Move(dt, 1.0f, 0.0f);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		Move(dt, 0.0f, -1.0f);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		Move(dt, 0.0f, 1.0f);
-	}
+
 }
 
 void Entity::Render(sf::RenderTarget* target)

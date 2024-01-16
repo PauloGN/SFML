@@ -16,9 +16,12 @@ private:
 	//state is abstract, then we are going to have a stack of pointers to various states, where the top is always the active one.
 	std::stack<State*> states;
 
+	std::map<std::string, int> supportedkeys;
+
 	//Initialization
 	void InitWindow();
 	void InitStates();
+	void InitKeys();
 
 public:
 
