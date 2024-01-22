@@ -2,13 +2,22 @@
 
 void GameState::InitKeyBinds()
 {
+	std::ifstream ifs("config/GS_Keybinds.ini");
 
-	Keybinds.emplace("MOVE_LEFT", suportedkeys->at("A"));
-	Keybinds.emplace("MOVE_RIGHT", suportedkeys->at("D"));
-	Keybinds.emplace("MOVE_UP", suportedkeys->at("W"));
-	Keybinds.emplace("MOVE_DOWN", suportedkeys->at("S"));
+	if (ifs.is_open())
+	{
+		std::string key_Func;
+		std::string keyboard;
 
+		while (ifs >> key_Func >> keyboard)
+		{
+			//Keybinds["MOVE_LEFT"] = supportedkeys->at("A");
+			Keybinds[key_Func] = supportedkeys->at(keyboard);
+			std::cout << key_Func << " -> " << keyboard<<"\n";
+		}
+	}
 
+	ifs.close();
 }
 
 GameState::GameState(sf::RenderWindow* _window, std::map<std::string, int>* _supportedkeys) :

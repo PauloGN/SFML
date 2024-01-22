@@ -34,13 +34,21 @@ void Game::InitStates()
 
 void Game::InitKeys()
 {
-    supportedkeys.emplace("Escape", sf::Keyboard::Key::Escape);
-    supportedkeys.emplace("A", sf::Keyboard::Key::A);
-    supportedkeys.emplace("S", sf::Keyboard::Key::S);
-    supportedkeys.emplace("D", sf::Keyboard::Key::D);
-    supportedkeys.emplace("W", sf::Keyboard::Key::W);
 
-    std::cout << supportedkeys.at("W");
+    std::ifstream ifs("config/SupportedKeys.ini");
+
+    if(ifs.is_open())
+    {
+        std::string skey = "";
+        int key_value = 0;
+
+        while(ifs>> skey >>key_value)
+        {
+           supportedkeys[skey] = key_value;
+        }
+    }
+
+    ifs.close();
 
 }
 
@@ -65,7 +73,7 @@ Game::~Game()
 //Engine functions
 void Game::EndApplication()
 {
-    std::cout << "Ending Aplication \n";
+    std::cout << "Ending Application \n";
 }
 
 void Game::UpdateDT()

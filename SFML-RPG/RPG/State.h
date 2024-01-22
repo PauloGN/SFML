@@ -6,7 +6,7 @@ class State
 protected:
 
 	sf::RenderWindow* window;
-	std::map<std::string, int>* suportedkeys;
+	std::map<std::string, int>* supportedkeys;
 	//each state is going to have its own leybinds
 	std::map<std::string, int> Keybinds;
 	bool quit;
@@ -29,4 +29,3 @@ public:
 	virtual void Update(const float& _dt) = 0;
 	virtual void Render(sf::RenderTarget* _target = nullptr) = 0;
 };
-
