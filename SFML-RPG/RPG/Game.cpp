@@ -9,21 +9,21 @@ void Game::InitWindow()
     //local variables - Default values
     sf::VideoMode win_bounds(400, 400);
     std::string title = "My Game";
-    unsigned framerate_limit = 120;
+    unsigned frameRate = 120;
     bool vertical_sync_enabled = false;
 
     if (ifs.is_open())
     {
         std::getline(ifs, title);
         ifs >> win_bounds.width >> win_bounds.height;
-        ifs >> framerate_limit;
+        ifs >> frameRate;
         ifs >> vertical_sync_enabled;
     }
 
     ifs.close();
 
 	window = new sf::RenderWindow(win_bounds, title);
-    window->setFramerateLimit(framerate_limit);
+    window->setFramerateLimit(frameRate);
     window->setVerticalSyncEnabled(vertical_sync_enabled);
 }
 
@@ -39,7 +39,7 @@ void Game::InitKeys()
 
     if(ifs.is_open())
     {
-        std::string skey = "";
+        std::string skey;
         int key_value = 0;
 
         while(ifs>> skey >>key_value)
@@ -62,12 +62,12 @@ Game::Game():window(nullptr)
 
 Game::~Game()
 {
-	delete this->window;
     while (!states.empty())
     {
         delete states.top();
         states.pop();
     }
+	delete this->window;
 }
 
 //Engine functions
@@ -110,7 +110,6 @@ void Game::Update()
         EndApplication();
         window->close();
     }
-
 }
 
 void Game::Render()

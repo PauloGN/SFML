@@ -54,7 +54,6 @@ void GameState::UpdateInputs(const float& _dt)
 	{
 		player.Move(_dt, 0.0f, 1.0f);
 	}
-
 }
 
 void GameState::Update(const float& _dt)
