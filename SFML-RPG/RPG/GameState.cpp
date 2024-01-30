@@ -61,8 +61,6 @@ void GameState::Update(const float& _dt)
 	UpdateInputs(_dt);
 
 	player.Update(_dt);
-
-
 }
 
 void GameState::Render(sf::RenderTarget* _target)

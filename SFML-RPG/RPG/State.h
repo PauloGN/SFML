@@ -14,6 +14,8 @@ protected:
 	//Resourcers
 	std::vector<sf::Texture> texture;
 
+private:
+
 	//Functions
 	virtual void InitKeyBinds() = 0;
 

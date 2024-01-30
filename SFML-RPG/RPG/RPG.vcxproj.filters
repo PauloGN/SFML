@@ -42,6 +42,9 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Game\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h">
@@ -55,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
