@@ -4,6 +4,7 @@
 void Game::InitWindow()
 {
     //Creates a SFML window and set it up using window.ini file
+#pragma region READ FILE
     std::ifstream ifs("config/window.ini");
 
     //local variables - Default values
@@ -21,6 +22,7 @@ void Game::InitWindow()
     }
 
     ifs.close();
+#pragma endregion
 
 	window = new sf::RenderWindow(win_bounds, title);
     window->setFramerateLimit(frameRate);
@@ -35,7 +37,6 @@ void Game::InitStates()
 
 void Game::InitKeys()
 {
-
     std::ifstream ifs("config/SupportedKeys.ini");
 
     if(ifs.is_open())
@@ -50,7 +51,6 @@ void Game::InitKeys()
     }
 
     ifs.close();
-
 }
 
 //Constructor/Destructor
@@ -63,18 +63,19 @@ Game::Game():window(nullptr)
 
 Game::~Game()
 {
+    //running the std::stack of states to delete all states.
     while (!states.empty())
     {
         delete states.top();
         states.pop();
     }
-	delete this->window;
+	delete window;
 }
 
 //Engine functions
 void Game::EndApplication()
 {
-    std::cout << "Ending Application \n";
+    std::cout << "Ending Game Instance \n";
 }
 
 void Game::UpdateDT()

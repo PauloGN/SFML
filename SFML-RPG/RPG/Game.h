@@ -13,9 +13,8 @@ private:
 	sf::Clock dtClock;
 	float dt;
 
-	//state is abstract, then we are going to have a stack of pointers to various states, where the top is always the active one.
+	//state is an abstract class, then we are going to have a stack of pointers to various states, where the top is always the active one.
 	std::stack<State*> states;
-
 	std::map<std::string, int> supportedkeys;
 
 	//Initialization
@@ -31,7 +30,6 @@ public:
 
 	//***Engine Function***\\
 
-	//Engine
 	void EndApplication();
 
 	//Updates
